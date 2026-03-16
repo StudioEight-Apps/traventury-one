@@ -6,13 +6,13 @@
 
 @layer base {
   :root {
-    --background: 228 18% 5%;
+    --background: 220 30% 6%;
     --foreground: 0 0% 100%;
 
-    --card: 228 18% 7%;
+    --card: 220 30% 8%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 228 18% 7%;
+    --popover: 220 30% 8%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 40 71% 84%;
@@ -22,9 +22,9 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 5% 40%;
-    --muted-foreground: 0 0% 67%;
+    --muted-foreground: 0 0% 73%;
 
-    --accent: 220 15% 12%;
+    --accent: 160 100% 36%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -39,10 +39,13 @@
     /* Custom tokens */
     --gold: 40 71% 84%;
     --gold-glow: 40 71% 84% / 0.1;
+    --teal: 160 100% 36%;
+    --blue: 204 89% 53%;
     --surface-glass: 0 0% 100% / 0.05;
-    --text-secondary: 0 0% 67%;
-    --aurora-teal: #0d3b3e;
-    --aurora-blue: #0d1f3e;
+    --text-secondary: 0 0% 73%;
+    --aurora-teal: #0a2a2e;
+    --aurora-blue: #0a1628;
+    --aurora-green: rgba(0, 186, 124, 0.05);
     --aurora-purple: #1a0d3e;
   }
 }
