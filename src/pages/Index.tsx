@@ -197,51 +197,33 @@ export default function Index() {
           Source inventory <span className="text-white/50">globally</span> for your rental business
         </h2>
 
-        <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 md:gap-6 lg:gap-10">
-          {/* Left features — icons face the phone on desktop */}
-          <div className="flex flex-col gap-12 md:gap-28 w-full md:flex-1 md:items-center">
-            {[
-              { icon: Globe, t: "Source Anything, Anywhere", d: "Any asset, any city. Book at wholesale, keep the spread." },
-              { icon: Megaphone, t: "Post What You Need", d: "Post a request. Operators compete to fill it." },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center gap-3 max-w-[260px]">
-                <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/[0.1] border border-primary/[0.2]">
-                  <item.icon size={22} strokeWidth={1.5} className="text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-[16px] lg:text-[17px] font-medium text-white mb-1.5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{item.t}</h3>
-                  <p className="text-[13px] leading-[1.6] text-white/45">{item.d}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Center device with brand glow. On mobile the phone moves to the
-              TOP (order-first) so the four feature points group together
-              cleanly beneath it instead of the phone splitting them down the
-              middle and looking scattered. On desktop it returns to center. */}
-          <div className="order-first md:order-none relative shrink-0 flex justify-center mb-4 md:my-0">
+        <div className="relative max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center gap-x-4 gap-y-10 md:gap-x-10 md:gap-y-20">
+          {/* Phone — full width on top (mobile), center column spanning both
+              rows (desktop). This keeps the four points as a tidy 2×2 block on
+              mobile instead of a sparse, strung-out column. */}
+          <div className="col-span-2 md:col-span-1 md:col-start-2 md:row-span-2 order-first md:order-none relative flex justify-center mb-2 md:mb-0">
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-primary/25 blur-[100px] pointer-events-none" />
-            <img src={phoneMockupSingle} alt="Traventury app" className="relative w-[220px] sm:w-[240px] lg:w-[270px] drop-shadow-2xl" />
+            <img src={phoneMockupSingle} alt="Traventury app" className="relative w-[200px] sm:w-[230px] lg:w-[260px] drop-shadow-2xl" />
           </div>
 
-          {/* Right features */}
-          <div className="flex flex-col gap-12 md:gap-28 w-full md:flex-1 md:items-center">
-            {[
-              { icon: ShieldCheck, t: "Vetted & Protected", d: "Every operator vetted. Every payment protected." },
-              { icon: TrendingUp, t: "Monetize Your Fleet", d: "Turn idle assets into income, booked worldwide." },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center gap-3 max-w-[260px]">
-                <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/[0.1] border border-primary/[0.2]">
-                  <item.icon size={22} strokeWidth={1.5} className="text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-[16px] lg:text-[17px] font-medium text-white mb-1.5" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{item.t}</h3>
-                  <p className="text-[13px] leading-[1.6] text-white/45">{item.d}</p>
-                </div>
+          {/* Four points: tight 2×2 grid on mobile; flanking the phone (2 left,
+              2 right) on desktop via explicit grid placement. */}
+          {[
+            { icon: Globe, t: "Source Anything, Anywhere", d: "Any asset, any city. Book at wholesale, keep the spread.", pos: "md:col-start-1 md:row-start-1" },
+            { icon: Megaphone, t: "Post What You Need", d: "Post a request. Operators compete to fill it.", pos: "md:col-start-3 md:row-start-1" },
+            { icon: ShieldCheck, t: "Vetted & Protected", d: "Every operator vetted. Every payment protected.", pos: "md:col-start-1 md:row-start-2" },
+            { icon: TrendingUp, t: "Monetize Your Fleet", d: "Turn idle assets into income, booked worldwide.", pos: "md:col-start-3 md:row-start-2" },
+          ].map((item, i) => (
+            <div key={i} className={`flex flex-col items-center text-center gap-2.5 md:max-w-[260px] md:mx-auto ${item.pos}`}>
+              <div className="flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-2xl bg-primary/[0.1] border border-primary/[0.2]">
+                <item.icon size={20} strokeWidth={1.5} className="text-primary" />
               </div>
-            ))}
-          </div>
+              <div>
+                <h3 className="text-[14px] lg:text-[17px] font-medium text-white mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{item.t}</h3>
+                <p className="text-[12px] lg:text-[13px] leading-[1.5] text-white/45">{item.d}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
       </section>
