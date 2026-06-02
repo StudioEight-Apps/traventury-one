@@ -14,12 +14,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Satoshi", "sans-serif"],
       },
       colors: {
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          glow: "hsl(var(--gold-glow))",
+        chrome: {
+          DEFAULT: "hsl(var(--chrome))",
+          muted: "hsl(var(--chrome-muted))",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

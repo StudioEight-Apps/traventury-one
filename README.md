@@ -1,3 +1,5 @@
-# Welcome to your Lovable project
+# Traventury United
 
-TODO: Document your project here
+A private network of vetted luxury rental operators. Cars, yachts, villas, jets, and chauffeur services — all in one platform.
+
+Built by Traventury LLC.
