@@ -110,10 +110,15 @@ export default function Index() {
         </AnimatePresence>
       </nav>
 
-      {/* Hero */}
-      <main className="relative z-10 h-svh overflow-hidden shrink-0">
+      {/* Hero — flex column so the phone can NEVER overlap the CTAs.
+          Text+CTAs are a fixed top block (shrink-0); the phone lives in its
+          own flex-1 region beneath them and is clipped from the bottom by the
+          main's overflow-hidden. When a Safari privacy banner or the address
+          bar eats vertical space, the phone region just shrinks (less peek) —
+          the buttons stay put and are never pushed into the screenshot. */}
+      <main className="relative z-10 h-svh overflow-hidden shrink-0 flex flex-col items-center">
         {/* Centered text content */}
-        <div className="relative z-20 flex flex-col items-center text-center px-6 md:px-16 lg:px-24 pt-[100px] md:pt-[120px]">
+        <div className="relative z-20 shrink-0 w-full flex flex-col items-center text-center px-6 md:px-16 lg:px-24 pt-[100px] md:pt-[120px]">
           <h1
             className="leading-[1.1] font-light tracking-[-0.02em] mb-4 md:mb-3 text-white"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
@@ -145,8 +150,10 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Phone mockups: single on mobile, 3 on desktop */}
-        <div className="absolute top-[52%] md:top-[58%] inset-x-0 z-10 flex justify-center pointer-events-none">
+        {/* Phone mockups: single on mobile, 3 on desktop. Own flex region
+            below the CTAs, top-aligned + clipped at the bottom — so it adapts
+            to any viewport height without ever colliding with the buttons. */}
+        <div className="relative z-10 w-full flex-1 min-h-0 flex justify-center items-start mt-8 md:mt-10 pointer-events-none">
           <motion.img
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
