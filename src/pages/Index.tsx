@@ -104,6 +104,21 @@ export default function Index() {
                     {link.label}
                   </button>
                 ))}
+                {/* Join Waitlist is NOT part of navLinks — it lived only in
+                    the `hidden md:flex` desktop block, so from the Jun 2
+                    "App Store download only" change until now there was no
+                    way to open the waitlist on a phone at all. Mobile is
+                    where operator traffic actually lands. */}
+                <button
+                  onClick={() => {
+                    setActiveView("access");
+                    setMobileMenuOpen(false);
+                  }}
+                  className="mt-2 px-6 py-3 bg-primary text-white text-[11px] font-semibold tracking-[0.12em] uppercase rounded-full transition-all duration-300 hover:brightness-110"
+                  style={{ boxShadow: "0 0 20px hsl(217 70% 55% / 0.4), 0 0 40px hsl(217 70% 55% / 0.15)" }}
+                >
+                  Join Waitlist
+                </button>
               </div>
             </motion.div>
           )}
@@ -147,6 +162,15 @@ export default function Index() {
                 <span className="text-[17px] font-semibold tracking-tight -mt-0.5">App Store</span>
               </span>
             </a>
+            {/* Secondary CTA for operators who aren't ready to install — the
+                only waitlist entry point visible without opening a menu.
+                This flex row was already built for two buttons. */}
+            <button
+              onClick={() => setActiveView("access")}
+              className="inline-flex items-center justify-center px-6 py-3.5 bg-white/[0.06] backdrop-blur-xl border border-white/[0.12] text-white text-[15px] font-medium rounded-2xl transition-all duration-300 hover:bg-white/[0.10] hover:scale-[1.03] active:scale-95"
+            >
+              Join the Waitlist
+            </button>
           </div>
         </div>
 
